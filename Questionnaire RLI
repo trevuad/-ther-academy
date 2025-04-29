@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Questionnaire Bien-Être</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background-color: #f5f5f5; }
+    .category { margin-bottom: 20px; display: none; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .category h2 { color: #333; }
+    button { margin-top: 10px; padding: 10px 20px; background-color: #1976d2; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    button:disabled { background-color: #ccc; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+
+  <h1>Questionnaire Bien-Être</h1>
+
+  <form id="questionnaireForm">
+
+    <!-- Catégories -->
+    <div id="category1" class="category">
+      <h2>1. État général et bien-être</h2>
+      <p>Comment vous sentez-vous physiquement ?</p>
+      <label><input type="radio" name="physique" value="Très bien"> Très bien</label><br>
+      <label><input type="radio" name="physique" value="Assez bien"> Assez bien</label><br>
+      <label><input type="radio" name="physique" value="Moyennement bien"> Moyennement bien</label><br>
+      <label><input type="radio" name="physique" value="Pas bien"> Pas bien</label><br>
+      <label><input type="radio" name="physique" value="Très mal"> Très mal</label><br><br>
+
+      <p>Comment qualifieriez-vous votre niveau d’énergie ?</p>
+      <label><input type="radio" name="energie" value="Très élevé"> Très élevé</label><br>
+      <label><input type="radio" name="energie" value="Assez élevé"> Assez élevé</label><br>
+      <label><input type="radio" name="energie" value="Moyenne"> Moyenne</label><br>
+      <label><input type="radio" name="energie" value="Faible"> Faible</label><br>
+      <label><input type="radio" name="energie" value="Très faible"> Très faible</label><br><br>
+
+      <p>Avez-vous des douleurs physiques régulières ?</p>
+      <label><input type="radio" name="douleurs" value="Aucune"> Aucune</label><br>
+      <label><input type="radio" name="douleurs" value="Légères"> Légères</label><br>
+      <label><input type="radio" name="douleurs" value="Supportables"> Supportables</label><br>
+      <label><input type="radio" name="douleurs" value="Gênantes"> Gênantes</label><br>
+      <label><input type="radio" name="douleurs" value="Intenses"> Intenses</label><br><br>
+
+      <p>Comment est votre sommeil ?</p>
+      <label><input type="radio" name="sommeil" value="Très bon"> Très bon</label><br>
+      <label><input type="radio" name="sommeil" value="Bon"> Bon</label><br>
+      <label><input type="radio" name="sommeil" value="Passable"> Passable</label><br>
+      <label><input type="radio" name="sommeil" value="Mauvais"> Mauvais</label><br>
+      <label><input type="radio" name="sommeil" value="Très mauvais"> Très mauvais</label><br><br>
+
+      <button type="button" onclick="nextCategory(1)">Suivant</button>
+    </div>
+
+    <div id="category2" class="category">
+      <h2>2. Antécédents de santé et traumas</h2>
+      <p>Antécédents de maladies ?</p>
+      <label><input type="radio" name="maladies" value="Non"> Non</label><br>
+      <label><input type="radio" name="maladies" value="Sous contrôle"> Sous contrôle</label><br>
+      <label><input type="radio" name="maladies" value="Encore présentes"> Encore présentes</label><br>
+      <label><input type="radio" name="maladies" value="Symptômes inexpliqués"> Symptômes inexpliqués</label><br><br>
+
+      <p>Traumatismes vécus ?</p>
+      <label><input type="radio" name="traumatismes" value="Non"> Non</label><br>
+      <label><input type="radio" name="traumatismes" value="Sans conséquences"> Sans conséquences</label><br>
+      <label><input type="radio" name="traumatismes" value="Guéris"> Guéris</label><br>
+      <label><input type="radio" name="traumatismes" value="Encore perturbants"> Encore perturbants</label><br><br>
+
+      <p>Violences physiques ou émotionnelles ?</p>
+      <label><input type="radio" name="violences" value="Non"> Non</label><br>
+      <label><input type="radio" name="violences" value="Passées"> Passées</label><br>
+      <label><input type="radio" name="violences" value="Perturbantes"> Perturbantes</label><br>
+      <label><input type="radio" name="violences" value="Encore présentes"> Encore présentes</label><br><br>
+
+      <button type="button" onclick="nextCategory(2)">Suivant</button>
+    </div>
+
+    <div id="category3" class="category">
+      <h2>3. État émotionnel actuel</h2>
+      <p>État émotionnel général ?</p>
+      <label><input type="radio" name="etatEmotionnel" value="Très calme"> Très calme</label><br>
+      <label><input type="radio" name="etatEmotionnel" value="Un peu agité"> Un peu agité</label><br>
+      <label><input type="radio" name="etatEmotionnel" value="Colère régulière"> Colère régulière</label><br>
+      <label><input type="radio" name="etatEmotionnel" value="Stressé(e)"> Stressé(e)</label><br>
+      <label><input type="radio" name="etatEmotionnel" value="En crise"> En crise</label><br><br>
+
+      <p>Crises émotionnelles régulières ?</p>
+      <label><input type="radio" name="crises" value="Non"> Non</label><br>
+      <label><input type="radio" name="crises" value="Rarement"> Rarement</label><br>
+      <label><input type="radio" name="crises" value="Parfois"> Parfois</label><br>
+      <label><input type="radio" name="crises" value="Souvent"> Souvent</label><br>
+      <label><input type="radio" name="crises" value="Très souvent"> Très souvent</label><br><br>
+
+      <p>Émotions envahissantes ?</p>
+      <label><input type="radio" name="envahissantes" value="Non"> Non</label><br>
+      <label><input type="radio" name="envahissantes" value="Gérées"> Gérées</label><br>
+      <label><input type="radio" name="envahissantes" value="Parfois"> Parfois</label><br>
+      <label><input type="radio" name="envahissantes" value="Souvent"> Souvent</label><br>
+      <label><input type="radio" name="envahissantes" value="Constantes"> Constantes</label><br><br>
+
+      <button type="button" onclick="nextCategory(3)">Suivant</button>
+    </div>
+
+    <!-- Tu peux continuer avec les catégories 4 à 7 ici de manière similaire... -->
+
+    <div id="result" class="category">
+      <h2>Résultats :</h2>
+      <p id="resultText"></p>
+    </div>
+  </form>
+
+  <script>
+    let currentCategory = 1;
+    document.getElementById("category1").style.display = "block";
+
+    function nextCategory(current) {
+      const currentDiv = document.getElementById("category" + current);
+      const inputs = currentDiv.querySelectorAll("input[type='radio']");
+      const answered = Array.from(inputs).some(input => input.checked);
+
+      if (!answered) {
+        alert("Veuillez répondre à toutes les questions avant de continuer.");
+        return;
+      }
+
+      currentDiv.style.display = "none";
+      const nextDiv = document.getElementById("category" + (current + 1));
+
+      if (nextDiv) {
+        nextDiv.style.display = "block";
+      } else {
+        showResults();
+      }
+    }
+
+    function showResults() {
+      const form = document.getElementById("questionnaireForm");
+      const data = new FormData(form);
+      let results = "";
+
+      for (let [key, value] of data.entries()) {
+        results += `<strong>${key}:</strong> ${value}<br>`;
+      }
+
+      document.getElementById("resultText").innerHTML = results;
+      document.getElementById("result").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
